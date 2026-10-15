@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#15803d">
+  <meta name="description" content="Verdeon Digital provides website development, graphic design and digital solutions in Jamnagar, Gujarat, and online.">
+  <title>Verdeon Digital | Websites & Graphic Design</title>
+
+  <style>
+    :root {
+      --green: #15803d;
+      --dark: #14532d;
+      --light: #f0fdf4;
+      --text: #17251b;
+      --muted: #647067;
+      --border: #e0ebe3;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--dark);
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      color: white;
+      border-radius: 12px;
+      font-size: 25px;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--green);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--green); }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 9px;
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      border: 1px solid var(--green);
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--green);
+    }
+
+    .hero {
+      padding: 90px 0;
+      background:
+        radial-gradient(circle at 85% 20%, #dcfce7, transparent 30%),
+        linear-gradient(135deg, #f7fff8, white);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--light);
+      color: var(--dark);
+      border: 1px solid #bbf7d0;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      margin: 20px 0;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero p, .muted {
+      color: var(--muted);
+    }
+
+    .hero p {
+      max-width: 570px;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .hero-art {
+      padding: 28px;
+      border-radius: 25px;
+      background: var(--light);
+      border: 1px solid #d4f1dc;
+    }
+
+    .art-window {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px #14532d12;
+    }
+
+    .art-banner {
+      background: linear-gradient(135deg, var(--dark), var(--green));
+      color: white;
+      padding: 28px 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+
+    .art-banner h2 {
+      font-size: 27px;
+      margin: 0;
+    }
+
+    .art-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .art-card {
+      padding: 12px 5px;
+      text-align: center;
+      background: var(--light);
+      border-radius: 9px;
+      color: var(--dark);
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    section { padding: 75px 0; }
+
+    .section-title {
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -1.2px;
+      margin: 10px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      background: white;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px #14532d0c;
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      background: var(--light);
+      color: var(--green);
+      border-radius: 12px;
+      font-size: 23px;
+    }
+
+    .card h3 { margin: 16px 0 8px; }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .portfolio { background: #f8fcf9; }
+
+    .project-visual {
+      min-height: 175px;
+      padding: 22px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #dcfce7, #f7fff8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 17px;
+    }
+
+    .mockup {
+      width: 100%;
+      max-width: 270px;
+      padding: 24px 15px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px #14532d10;
+    }
+
+    .mockup strong {
+      display: block;
+      color: var(--dark);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .mockup small {
+      display: block;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .label {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 9px;
+      background: var(--light);
+      color: var(--green);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .price {
+      color: var(--green);
+      font-size: 27px;
+      font-weight: 900;
+      margin: 15px 0 5px;
+    }
+
+    .price-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price-card li { margin: 7px 0; }
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-box {
+      padding: 30px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid #d4f1dc;
+    }
+
+    .about-box .logo {
+      width: 65px;
+      height: 65px;
+      font-size: 35px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 30px;
+    }
+
+    .contact-item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .contact-item a {
+      color: var(--green);
+      overflow-wrap: anywhere;
+    }
+
+    form {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      box-shadow: 0 10px 35px #14532d0a;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #d5e2d8;
+      border-radius: 8px;
+      font: inherit;
+      background: #fcfffc;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #86efac;
+      border-color: var(--green);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0;
+      background: #103b23;
+      color: white;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+
+    footer small { color: #d1e7d7; }
+
+    @media (max-width: 800px) {
+      .hero-grid, .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 60px 0; }
+      nav { gap: 12px; }
+      nav a { font-size: 12px; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: 92%; }
+      .navbar { flex-wrap: wrap; padding: 12px 0; }
+      nav { order: 3; width: 100%; justify-content: space-between; }
+      .navbar > .btn { padding: 9px 12px; font-size: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      h1 { letter-spacing: -1.5px; }
+      .hero-art { padding: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a class="brand" href="#home">
+      <span class="logo">✳</span>
+      <span>VERDEON<small>DIGITAL SOLUTIONS</small></span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn" href="#contact">Get a quote ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">Digital services · Jamnagar & online</span>
+        <h1>Your business deserves a <span>great digital</span> presence.</h1>
+        <p>
+          We help businesses grow online through modern websites,
+          creative graphic design and practical digital solutions.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="#contact">Start your project ↗</a>
+          <a class="btn btn-outline" href="#portfolio">View portfolio</a>
+        </div>
+
+        <p class="muted">
+          ✓ Mobile-friendly design &nbsp; ✓ Clear communication
+        </p>
+      </div>
+
+      <div class="hero-art">
+        <div class="art-window">
+          <strong>✳ VERDEON DIGITAL</strong>
+          <div class="art-banner">
+            <h2>Make your<br>business stand out.</h2>
+            <p>Design. Develop. Deliver.</p>
+          </div>
+          <div class="art-cards">
+            <div class="art-card">⌘<br>Websites</div>
+            <div class="art-card">✦<br>Design</div>
+            <div class="art-card">▤<br>Business</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Our services</span>
+        <h2>Everything you need to get online.</h2>
+        <p class="muted">
+          Practical digital services for small businesses, creators,
+          restaurants and growing companies.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">⌘</div>
+          <h3>Website Development</h3>
+          <p>Business websites, landing pages, portfolios and responsive websites.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">✦</div>
+          <h3>Graphic Design</h3>
+          <p>YouTube thumbnails, social media creatives, posters and branding.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">▤</div>
+          <h3>Business Documents</h3>
+          <p>Invoice formats, quotations, letterheads and business cards.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">◎</div>
+          <h3>Domain & Hosting</h3>
+          <p>Help connecting domains, publishing websites and setting up SSL.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">☕</div>
+          <h3>Restaurant Solutions</h3>
+          <p>Digital menus, restaurant websites and WhatsApp enquiry links.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">↗</div>
+          <h3>Website Maintenance</h3>
+          <p>Content updates and ongoing support with an agreed project scope.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Our portfolio</span>
+        <h2>Creative concepts. Practical solutions.</h2>
+        <p class="muted">
+          These examples are concept designs made to demonstrate our style.
+          They are not represented as completed client projects.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="project-visual">
+            <div class="mockup">
+              <small>INDUSTRIAL WEBSITE CONCEPT</small>
+              <strong>Precision in every detail.</strong>
+              <p class="muted">Products · Quality · Contact</p>
+            </div>
+          </div>
+          <h3>Industrial Business Website</h3>
+          <p class="muted">A professional online presence for a manufacturer or supplier.</p>
+          <span class="label">Concept project</span>
+        </article>
+
+        <article class="card">
+          <div class="project-visual">
+            <div class="mockup">
+              <small>RESTAURANT MENU CONCEPT</small>
+              <strong>THE GREEN PLATE</strong>
+              <p class="muted">Garden Burger ........ ₹149</p>
+              <p class="muted">Paneer Wrap .......... ₹129</p>
+              <p class="muted">Masala Fries ........... ₹89</p>
+            </div>
+          </div>
+          <h3>Restaurant Menu Design</h3>
+          <p class="muted">A sample menu with clear pricing and consistent branding.</p>
+          <span class="label">Concept project</span>
+        </article>
+
+        <article class="card">
+          <div class="project-visual">
+            <div class="mockup" style="background:#14532d;color:white">
+              <small style="color:#bbf7d0">THUMBNAIL CONCEPT</small>
+              <strong style="color:white">MAKE YOUR<br>IDEA HAPPEN</strong>
+              <p>WATCH NOW ↗</p>
+            </div>
+          </div>
+          <h3>YouTube Thumbnail</h3>
+          <p class="muted">A bold concept focused on readable text and strong contrast.</p>
+          <span class="label">Concept project</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Starter pricing</span>
+        <h2>Simple starting packages.</h2>
+        <p class="muted">
+          Indicative prices for limited project scopes. Final quotes depend
+          on requirements, content and complexity.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card price-card">
+          <h3>Design Starter</h3>
+          <div class="price">₹999</div>
+          <p class="muted">For small business promotions.</p>
+          <ul>
+            <li>Business card design</li>
+            <li>One social media creative</li>
+            <li>Two revision rounds</li>
+          </ul>
+          <a class="btn" href="#contact">Enquire now</a>
+        </article>
+
+        <article class="card price-card">
+          <h3>Business Website</h3>
+          <div class="price">₹4,999</div>
+          <p class="muted">For a simple online presence.</p>
+          <ul>
+            <li>Up to three simple pages</li>
+            <li>Mobile-friendly layout</li>
+            <li>Contact and WhatsApp links</li>
+          </ul>
+          <a class="btn" href="#contact">Enquire now</a>
+        </article>
+
+        <article class="card price-card">
+          <h3>Restaurant Starter</h3>
+          <div class="price">₹2,999</div>
+          <p class="muted">For a digital menu and presence.</p>
+          <ul>
+            <li>One-page website</li>
+            <li>Digital menu section</li>
+            <li>Location and contact links</li>
+          </ul>
+          <a class="btn" href="#contact">Enquire now</a>
+        </article>
+      </div>
+
+      <p class="form-note">
+        Domain, hosting, printing, paid plugins and advanced features are
+        not included unless explicitly agreed in the quote.
+      </p>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-box">
+        <div class="logo">✳</div>
+        <h3>Personal attention. Practical work.</h3>
+        <p class="muted">A growing digital services agency based in Jamnagar.</p>
+      </div>
+
+      <div>
+        <span class="eyebrow">About Verdeon Digital</span>
+        <h2>Digital help without unnecessary complexity.</h2>
+        <p class="muted">
+          Verdeon Digital is an emerging digital services brand helping
+          businesses improve their online presence through website
+          development and creative design.
+        </p>
+        <p class="muted">
+          We focus on clear communication, agreed deliverables and solutions
+          that match each client's needs and budget.
+        </p>
+        <p><strong>Location:</strong> Jamnagar, Gujarat, India</p>
+        <p><strong>Availability:</strong> Local and remote projects</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Contact us</span>
+        <h2>Let's discuss your next project.</h2>
+        <p class="muted">
+          Tell us what you need and we'll discuss the scope, timeline and quote.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <h3>Get in touch</h3>
+          <p class="muted">We welcome enquiries from Jamnagar and online clients.</p>
+
+          <div class="contact-item">
+            <strong>Email</strong>
+            <a href="mailto:verdeondigital@gmail.com">
+              verdeondigital@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/919909592876" target="_blank" rel="noopener">
+              +91 99095 92876 — Message us ↗
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <strong>Location</strong>
+            <span class="muted">Jamnagar, Gujarat, India</span>
+          </div>
+        </div>
+
+        <form id="contactForm">
+          <label>
+            Your name
+            <input id="name" name="name" required placeholder="Enter your name">
+          </label>
+
+          <label>
+            Your email or phone
+            <input id="contactDetails" name="contact" required
+              placeholder="How can we reach you?">
+          </label>
+
+          <label>
+            Service required
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>Website development</option>
+              <option>Graphic design</option>
+              <option>Restaurant website or menu</option>
+              <option>Business card or invoice</option>
+              <option>Domain and hosting</option>
+              <option>Other digital service</option>
+            </select>
+          </label>
+
+          <label>
+            Project details
+            <textarea id="details" name="details"
+              placeholder="Describe your project, budget and deadline"></textarea>
+          </label>
+
+          <button class="btn" type="submit">Send enquiry by email ↗</button>
+          <p class="form-note">
+            This form opens your email application. It does not store enquiries
+            on a server. If email does not open, contact us directly by WhatsApp.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <strong>✳ VERDEON DIGITAL</strong><br>
+      <small>Your Vision. Our Digital Craft.</small>
+    </div>
+    <small>© <span id="year"></span> Verdeon Digital</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const contact = document.getElementById("contactDetails").value.trim();
+    const service = document.getElementById("service").value;
+    const details = document.getElementById("details").value.trim();
+
+    const subject = encodeURIComponent("Website enquiry: " + service);
+    const body = encodeURIComponent(
+      "Name: " + name +
+      "\nEmail or phone: " + contact +
+      "\nService: " + service +
+      "\nProject details: " + details
+    );
+
+    window.location.href =
+      "mailto:verdeondigital@gmail.com?subject=" + subject + "&body=" + body;
+  });
+</script>
+
+</body>
+</html>
